@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import './ToDoList.css';
 
 export default function todo() {
+  const [isCompleteScreen, setIsCompleteScreen] = useState(false);
+  
   return (
     <div className="App">
       <h1>My Todos</h1>
@@ -21,8 +24,8 @@ export default function todo() {
         </div>
         
         <div className="btn-area">
-            <button>Todo</button>
-            <button>Completed</button> 
+            <button className={`secondaryBtn ${isCompleteScreen === false && 'active'}`} onClick={() => setIsCompleteScreen(false)}>Todo</button>
+            <button className={`secondaryBtn ${isCompleteScreen === true && 'active'}`} onClick={() => setIsCompleteScreen(true)}>Completed</button> 
         </div>
 
         <div className="todo-list">
